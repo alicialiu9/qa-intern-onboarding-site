@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing Logins and URLs - QA Resources</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .nav {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+    .nav a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      color: #333;
+    }
+    h1 {
+      border-bottom: 3px solid #0066cc;
+      padding-bottom: 0.5rem;
+    }
+    h2 {
+      background-color: #f8f9fa;
+      padding: 0.8rem;
+      border-left: 4px solid #0066cc;
+      margin-top: 2rem;
+    }
+    h3 {
+      color: #0066cc;
+      margin-top: 1.5rem;
+    }
+    .login-info {
+      background-color: #f0f8ff;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border-left: 4px solid #4CAF50;
+    }
+    .url-group {
+      background-color: #fafafa;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border-left: 4px solid #FF9800;
+    }
+    .environment-section {
+      margin-bottom: 2rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    code {
+      background-color: #eee;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+    }
+    .credential {
+      font-family: 'Consolas', 'Monaco', monospace;
+      background-color: #f5f5f5;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .note {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <a href="index.html">← Back to QA Onboarding</a>
+    </div>
+
+    <h1>Testing Logins and URLs</h1>
+    <p><strong>Quick Reference Guide for Testing Environments</strong></p>
+
+    <!-- Quick Links Navigation -->
+    <div class="note">
+      <h3>Quick Navigation:</h3>
+      <ul>
+        <li><a href="#logins">Testing Logins</a> | <a href="#dom-urls">DOM URLs</a> | <a href="#dom-html5">DOM HTML5/STV</a> | <a href="#intl-urls">INTL URLs</a> | <a href="#additional">Additional Resources</a></li>
+      </ul>
+    </div>
+
+    <!-- Testing Logins Section -->
+    <h2 id="logins">🔐 Testing Logins</h2>
+    
+    <div class="two-column">
+      <div class="environment-section">
+        <h3>Main Domestic (DOM) Login</h3>
+        <div class="login-info">
+          <p><strong>Primary Account:</strong></p>
+          <p>Email: <span class="credential">lcpshowbundle1@gmail.com</span></p>
+          <p>Password: <span class="credential">cbs123</span></p>
+        </div>
+        
+        <h4>Other DOM Credentials</h4>
+        <ul>
+          <li><strong>Showtime locked:</strong> <span class="credential">unbundledtest01@gmail.com</span> // <span class="credential">cbs123</span></li>
+          <li><strong>Essential:</strong> <span class="credential">AllenStageEssential01@gmail.com</span> // <span class="credential">123456</span></li>
+          <li><strong>MOPS Essential:</strong> <span class="credential">mops.essential@gmail.com</span> // <span class="credential">cbs123</span></li>
+        </ul>
+
+        <h4>Account Types</h4>
+        <ul>
+          <li><strong>BUNDLED:</strong> <span class="credential">lcpshowbundle1@gmail.com</span> // <span class="credential">cbs123</span></li>
+          <li><strong>UNBUNDLED:</strong> <span class="credential">AllenStageEssential01@gmail.com</span> // <span class="credential">123456</span> (works well)</li>
+        </ul>
+      </div>
+
+      <div class="environment-section">
+        <h3>Main International (INTL) Login</h3>
+        <div class="login-info">
+          <p><strong>Primary Account:</strong></p>
+          <p>Email: <span class="credential">vcnitest+CA1@gmail.com</span></p>
+          <p>Password: <span class="credential">froyo123</span></p>
+        </div>
+        
+        <div class="note">
+          <p><strong>Note:</strong> Format uses country codes - CA for Canada, AU for Australia (main two countries for INTL testing)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <p><strong>Console Command for Location Override:</strong></p>
+      <code>document.cookie= "CBS_LO=CA;path=/"</code>
+    </div>
+
+    <!-- DOM URLs Section -->
+    <h2 id="dom-urls">🌐 DOM (USA) URLs</h2>
+    
+    <div class="environment-section">
+      <h3>Main Environments</h3>
+      <div class="url-group">
+        <ul>
+          <li><strong>PROD:</strong> <a href="https://www.paramountplus.com/" target="_blank">https://www.paramountplus.com/</a></li>
+          <li><strong>SHADOW:</strong> <a href="https://shadow.paramountplus.com/" target="_blank">https://shadow.paramountplus.com/</a></li>
+          <li><strong>PREVIEW:</strong> <a href="https://preview.paramountplus.com/" target="_blank">https://preview.paramountplus.com/</a></li>
+          <li><strong>STAGE:</strong> <a href="https://stage.paramountplus.com/" target="_blank">https://stage.paramountplus.com/</a></li>
+          <li><strong>Test.www:</strong> <a href="https://test-www.paramountplus.com/" target="_blank">https://test-www.paramountplus.com/</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DOM HTML5/STV URLs Section -->
+    <h2 id="dom-html5">📺 DOM HTML5 / STV URLs</h2>
+    
+    <div class="two-column">
+      <div class="environment-section">
+        <h3>Comcast</h3>
+        <div class="url-group">
+          <ul>
+            <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/smart-console-apps/comcast/" target="_blank">https://www.paramountplus.com/smart-console-apps/comcast/</a></li>
+            <li><strong>Test:</strong> <a href="https://test-www.paramountplus.com/smart-console-apps/comcast/" target="_blank">https://test-www.paramountplus.com/smart-console-apps/comcast/</a></li>
+            <li><strong>Preview:</strong> <a href="https://preview.paramountplus.com/smart-console-apps/comcast/" target="_blank">https://preview.paramountplus.com/smart-console-apps/comcast/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h3>LG WebOS</h3>
+        <div class="url-group">
+          <ul>
+            <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/smart-console-apps/lg-webos/" target="_blank">https://www.paramountplus.com/smart-console-apps/lg-webos/</a></li>
+            <li><strong>Test:</strong> <a href="https://test-www.paramountplus.com/smart-console-apps/lg-webos/" target="_blank">https://test-www.paramountplus.com/smart-console-apps/lg-webos/</a></li>
+            <li><strong>Preview:</strong> <a href="https://preview.paramountplus.com/smart-console-apps/lg-webos/" target="_blank">https://preview.paramountplus.com/smart-console-apps/lg-webos/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h3>PlayStation</h3>
+        <div class="url-group">
+          <ul>
+            <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/smart-console-apps/playstation/" target="_blank">https://www.paramountplus.com/smart-console-apps/playstation/</a></li>
+            <li><strong>Test:</strong> <a href="https://test-www.paramountplus.com/smart-console-apps/playstation/" target="_blank">https://test-www.paramountplus.com/smart-console-apps/playstation/</a></li>
+            <li><strong>Preview:</strong> <a href="https://preview.paramountplus.com/smart-console-apps/playstation/" target="_blank">https://preview.paramountplus.com/smart-console-apps/playstation/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h3>PS4</h3>
+        <div class="url-group">
+          <ul>
+            <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/smart-console-apps/ps4/" target="_blank">https://www.paramountplus.com/smart-console-apps/ps4/</a></li>
+            <li><strong>Test:</strong> <a href="https://test-www.paramountplus.com/smart-console-apps/ps4/" target="_blank">https://test-www.paramountplus.com/smart-console-apps/ps4/</a></li>
+            <li><strong>Preview:</strong> <a href="https://preview.paramountplus.com/smart-console-apps/ps4/" target="_blank">https://preview.paramountplus.com/smart-console-apps/ps4/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h3>Samsung</h3>
+        <div class="url-group">
+          <ul>
+            <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/smart-console-apps/samsung/" target="_blank">https://www.paramountplus.com/smart-console-apps/samsung/</a></li>
+            <li><strong>Test:</strong> <a href="https://test-www.paramountplus.com/smart-console-apps/samsung/" target="_blank">https://test-www.paramountplus.com/smart-console-apps/samsung/</a></li>
+            <li><strong>Preview:</strong> <a href="https://preview.paramountplus.com/smart-console-apps/samsung/" target="_blank">https://preview.paramountplus.com/smart-console-apps/samsung/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h3>Xbox</h3>
+        <div class="url-group">
+          <ul>
+            <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/smart-console-apps/xboxone/" target="_blank">https://www.paramountplus.com/smart-console-apps/xboxone/</a></li>
+            <li><strong>Test:</strong> <a href="https://test-www.paramountplus.com/smart-console-apps/xboxone/" target="_blank">https://test-www.paramountplus.com/smart-console-apps/xboxone/</a></li>
+            <li><strong>Preview:</strong> <a href="https://preview.paramountplus.com/smart-console-apps/xboxone/" target="_blank">https://preview.paramountplus.com/smart-console-apps/xboxone/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h3>Vizio</h3>
+        <div class="url-group">
+          <ul>
+            <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/smart-console-apps/vizio/" target="_blank">https://www.paramountplus.com/smart-console-apps/vizio/</a></li>
+            <li><strong>Test:</strong> <a href="https://test-www.paramountplus.com/smart-console-apps/vizio/" target="_blank">https://test-www.paramountplus.com/smart-console-apps/vizio/</a></li>
+            <li><strong>Preview:</strong> <a href="https://preview.paramountplus.com/smart-console-apps/vizio/" target="_blank">https://preview.paramountplus.com/smart-console-apps/vizio/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h3>Cox</h3>
+        <div class="url-group">
+          <ul>
+            <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/smart-console-apps/cox/" target="_blank">https://www.paramountplus.com/smart-console-apps/cox/</a></li>
+            <li><strong>Test:</strong> <a href="https://test-www.paramountplus.com/smart-console-apps/cox/" target="_blank">https://test-www.paramountplus.com/smart-console-apps/cox/</a></li>
+            <li><strong>Preview:</strong> <a href="https://preview.paramountplus.com/smart-console-apps/cox/" target="_blank">https://preview.paramountplus.com/smart-console-apps/cox/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h3>Vidaa</h3>
+        <div class="url-group">
+          <ul>
+            <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/smart-console-apps/vidaa/" target="_blank">https://www.paramountplus.com/smart-console-apps/vidaa/</a></li>
+            <li><strong>Test:</strong> <a href="https://test-www.paramountplus.com/smart-console-apps/vidaa/" target="_blank">https://test-www.paramountplus.com/smart-console-apps/vidaa/</a></li>
+            <li><strong>Preview:</strong> <a href="https://preview.paramountplus.com/smart-console-apps/vidaa/" target="_blank">https://preview.paramountplus.com/smart-console-apps/vidaa/</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTL URLs Section -->
+    <h2 id="intl-urls">🌍 INTL URLs</h2>
+    
+    <div class="environment-section">
+      <h3>INTL Web URLs</h3>
+      <div class="url-group">
+        <ul>
+          <li><strong>Stage:</strong> <a href="https://www.stage.intl.paramountplus.com/" target="_blank">https://www.stage.intl.paramountplus.com/</a></li>
+          <li><strong>Dev:</strong> <a href="https://www.dev.intl.paramountplus.com/" target="_blank">https://www.dev.intl.paramountplus.com/</a></li>
+          <li><strong>Preview:</strong> <a href="https://www.preview.intl.paramountplus.com/" target="_blank">https://www.preview.intl.paramountplus.com/</a></li>
+          <li><strong>Prod:</strong> <a href="https://www.paramountplus.com/" target="_blank">https://www.paramountplus.com/</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>INTL HTML5 / Smart TV URLs</h3>
+
+    <div class="two-column">
+      <div class="environment-section">
+        <h4>LG TV URLs</h4>
+        <div class="url-group">
+          <ul>
+            <li><strong>Stage:</strong> <a href="https://www.stage.intl.paramountplus.com/smart-console-apps/lg-webos" target="_blank">https://www.stage.intl.paramountplus.com/smart-console-apps/lg-webos</a></li>
+            <li><strong>Preview:</strong> <a href="https://www.preview.intl.paramountplus.com/smart-console-apps/lg-webos" target="_blank">https://www.preview.intl.paramountplus.com/smart-console-apps/lg-webos</a></li>
+            <li><strong>Prod:</strong> <a href="https://www.intl.paramountplus.com/smart-console-apps/lg-webos" target="_blank">https://www.intl.paramountplus.com/smart-console-apps/lg-webos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h4>Samsung TV URLs</h4>
+        <div class="url-group">
+          <ul>
+            <li><strong>Stage:</strong> <a href="https://www.stage.intl.paramountplus.com/smart-console-apps/samsung/" target="_blank">https://www.stage.intl.paramountplus.com/smart-console-apps/samsung/</a></li>
+            <li><strong>Preview:</strong> <a href="https://www.preview.intl.paramountplus.com/smart-console-apps/samsung/" target="_blank">https://www.preview.intl.paramountplus.com/smart-console-apps/samsung/</a></li>
+            <li><strong>Prod:</strong> <a href="https://www.intl.paramountplus.com/smart-console-apps/samsung/" target="_blank">https://www.intl.paramountplus.com/smart-console-apps/samsung/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h4>VIDAA TV URLs</h4>
+        <div class="url-group">
+          <ul>
+            <li><strong>Stage:</strong> <a href="https://www.stage.intl.paramountplus.com/smart-console-apps/vidaa/" target="_blank">https://www.stage.intl.paramountplus.com/smart-console-apps/vidaa/</a></li>
+            <li><strong>Preview:</strong> <a href="https://www.preview.intl.paramountplus.com/smart-console-apps/vidaa/" target="_blank">https://www.preview.intl.paramountplus.com/smart-console-apps/vidaa/</a></li>
+            <li><strong>Prod:</strong> <a href="https://www.intl.paramountplus.com/smart-console-apps/vidaa/" target="_blank">https://www.intl.paramountplus.com/smart-console-apps/vidaa/</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h4>Xbox URLs</h4>
+        <div class="url-group">
+          <ul>
+            <li><strong>Stage:</strong> <a href="https://www.stage.intl.paramountplus.com/smart-console-apps/xboxone" target="_blank">https://www.stage.intl.paramountplus.com/smart-console-apps/xboxone</a></li>
+            <li><strong>Prod:</strong> <a href="https://www.intl.paramountplus.com/smart-console-apps/xboxone" target="_blank">https://www.intl.paramountplus.com/smart-console-apps/xboxone</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="environment-section">
+        <h4>PlayStation URLs</h4>
+        <div class="url-group">
+          <ul>
+            <li><strong>Stage:</strong> <a href="https://www.stage.intl.paramountplus.com/smart-console-apps/playstation/" target="_blank">https://www.stage.intl.paramountplus.com/smart-console-apps/playstation/</a></li>
+            <li><strong>Preview:</strong> <a href="https://www.preview.intl.paramountplus.com/smart-console-apps/playstation/" target="_blank">https://www.preview.intl.paramountplus.com/smart-console-apps/playstation/</a></li>
+            <li><strong>Prod:</strong> <a href="https://www.intl.paramountplus.com/smart-console-apps/playstation/" target="_blank">https://www.intl.paramountplus.com/smart-console-apps/playstation/</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Resources Section -->
+    <h2 id="additional">📚 Additional Resources</h2>
+    
+    <div class="environment-section">
+      <h3>Development Resources</h3>
+      <div class="url-group">
+        <ul>
+          <li><strong>Samsung Tizen builds:</strong> <a href="https://drive.google.com/drive/folders/16DtOVN3VhXB6hKkxECooJwDT4uU2ESll" target="_blank">Google Drive Folder</a></li>
+          <li><strong>STB URLs (INTL):</strong> <a href="https://paramount.atlassian.net/wiki/spaces/~raspillm/pages/43358688/INTL+STB+CI+CD+Environment+Overview" target="_blank">INTL STB CI/CD Environment Overview</a></li>
+          <li><strong>Confluence Page with Logins:</strong> <em>(Link to be added)</em></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <p><strong>💡 Pro Tip:</strong> Bookmark this page for quick access to testing credentials and URLs during your QA work!</p>
+    </div>
+
+  </div>
+</body>
+</html>
