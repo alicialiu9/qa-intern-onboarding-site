@@ -5,164 +5,581 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QA Intern Onboarding - Summer 2025</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
+    :root {
+      --paramount-blue: #0073e6;
+      --paramount-dark-blue: #004b94;
+      --paramount-light-blue: #e8f4fd;
+      --paramount-silver: #f8f9fa;
+      --text-dark: #2c3e50;
+      --text-light: #6c757d;
+      --white: #ffffff;
+      --shadow: 0 2px 20px rgba(0, 115, 230, 0.1);
+    }
+
+    * {
       margin: 0;
-      padding: 2rem;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, var(--paramount-light-blue) 0%, var(--white) 100%);
+      scroll-behavior: smooth;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 115, 230, 0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--paramount-blue);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--paramount-blue);
+      background: var(--paramount-light-blue);
+    }
+
+    .nav-link.active {
+      color: var(--paramount-blue);
+      background: var(--paramount-light-blue);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--paramount-blue);
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-top: 70px;
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--paramount-blue) 0%, var(--paramount-dark-blue) 100%);
+      color: var(--white);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--white);
+      color: var(--paramount-blue);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 30px rgba(0, 115, 230, 0.3);
+    }
+
+    /* Sections */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--paramount-dark-blue);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 115, 230, 0.1);
     }
-    h1, h2, h3 {
-      color: #333;
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 40px rgba(0, 115, 230, 0.15);
     }
-    ul {
+
+    .card h3 {
+      color: var(--paramount-blue);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--paramount-silver);
+      position: relative;
       padding-left: 1.5rem;
     }
-    a {
-      color: #0066cc;
-      text-decoration: none;
+
+    .card li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--paramount-blue);
+      font-weight: bold;
     }
-    a:hover {
+
+    .card li:last-child {
+      border-bottom: none;
+    }
+
+    .card a {
+      color: var(--paramount-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .card a:hover {
       text-decoration: underline;
     }
-    code {
-      background-color: #eee;
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
+
+    .card code {
+      background: var(--paramount-light-blue);
+      color: var(--paramount-dark-blue);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.9rem;
     }
-    section {
-      margin-bottom: 2rem;
+
+    /* Special sections */
+    .tips-section {
+      background: var(--paramount-silver);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem 0;
+    }
+
+    .do-dont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .do-section, .dont-section {
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+
+    .do-section {
+      background: rgba(34, 197, 94, 0.1);
+      border-left: 4px solid #22c55e;
+    }
+
+    .dont-section {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid #ef4444;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--paramount-dark-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .do-dont-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-container {
+        padding: 0 1rem;
+      }
+
+      .section {
+        padding: 2rem 1rem;
+      }
+    }
+
+    /* Smooth scrolling animation */
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>First Week QA Intern Onboarding and Tips</h1>
-    <p><strong>Summer 2025</strong></p>
-
-    <section>
-      <h2>QA Documentation and Links</h2>
-      <ul>
-        <li>Acronyms</li>
-        <li>Communication Guideline</li>
-        <li>Data QA Guidelines</li>
-        <li>JIRA Best Practices</li>
-        <li><a href="#">JIRA Sprint Board</a></li>
-        <li><a href="#">MOPS QA Space</a> - QA principles and objectives</li>
-        <li>General QA Guidelines</li>
-        <li>TESTRAIL - regression test tracking</li>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">Paramount QA</a>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#documentation" class="nav-link">Documentation</a></li>
+        <li><a href="#testing" class="nav-link">Testing</a></li>
+        <li><a href="#guidelines" class="nav-link">Guidelines</a></li>
+        <li><a href="#resources" class="nav-link">Resources</a></li>
       </ul>
+      <button class="mobile-menu-toggle">☰</button>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>QA Intern Onboarding</h1>
+        <p>Welcome to your Summer 2025 journey with Paramount's Quality Assurance team. Everything you need to get started is right here.</p>
+        <a href="#documentation" class="cta-button">Get Started</a>
+      </div>
     </section>
 
-    <section>
-      <h2>Testing Logins + Links</h2>
-      <h3>First Day Tasks</h3>
-      <ul>
-        <li>View org chart via Slack profile</li>
-        <li>Reach out to manager for next steps</li>
-        <li>Set up direct deposit & time tracking (Workforce)</li>
-        <li>Submit hours weekly before Friday noon</li>
-        <li>Explore QA Onboarding doc & Confluence search</li>
-        <li>Set 3 personal & 3 professional goals</li>
-      </ul>
+    <!-- Documentation Section -->
+    <section id="documentation" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Documentation & Resources</h2>
+        <p class="section-subtitle">Essential documentation and links to get you up to speed with our QA processes</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Core Documentation</h3>
+          <ul>
+            <li>Acronyms Reference</li>
+            <li>Communication Guidelines</li>
+            <li>Data QA Guidelines</li>
+            <li>General QA Guidelines</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>JIRA & Project Management</h3>
+          <ul>
+            <li>JIRA Best Practices</li>
+            <li><a href="#">JIRA Sprint Board</a></li>
+            <li>Bug Ticketing Templates</li>
+            <li>Sprint Planning Process</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Testing Platforms</h3>
+          <ul>
+            <li><a href="#">MOPS QA Space</a> - QA principles and objectives</li>
+            <li>TESTRAIL - regression test tracking</li>
+            <li>Testing Environment Access</li>
+            <li>Automation Tools</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Scheduling, Meetings, Google Calendar</h2>
-      <ul>
-        <li>Use “Meet with…” to view availability</li>
-        <li>Add Zoom link to invites</li>
-        <li>Check Notes in calendar events</li>
-      </ul>
+    <!-- Testing Section -->
+    <section id="testing" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Testing & Tools</h2>
+        <p class="section-subtitle">Your first week tasks and essential testing information</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>First Day Tasks</h3>
+          <ul>
+            <li>View org chart via Slack profile</li>
+            <li>Reach out to manager for next steps</li>
+            <li>Set up direct deposit & time tracking (Workforce)</li>
+            <li>Submit hours weekly before Friday noon</li>
+            <li>Explore QA Onboarding doc & Confluence search</li>
+            <li>Set 3 personal & 3 professional goals</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>DevTools Essentials</h3>
+          <ul>
+            <li>Use <code>Inspect</code> > Network Tab</li>
+            <li>Filter for Media Edge API</li>
+            <li>Monitor <code>/interact</code> and <code>/b/ss</code> calls</li>
+            <li>AEP tracking validation</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Environment Info</h3>
+          <ul>
+            <li><strong>SDLC:</strong> Stage → Preview → Prod</li>
+            <li>Stage supports dummy credit cards</li>
+            <li>Top INTL: UK, Canada, Australia</li>
+            <li>France: Orange STB only</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Slack Tips</h2>
-      <p><strong>Do:</strong></p>
-      <ul>
-        <li>Connect Google Drive & Jira</li>
-        <li>Use AI Assistant & self-DMs for notes</li>
-        <li>Engage with reaction emojis & respond in thread</li>
-      </ul>
-      <p><strong>Don't:</strong></p>
-      <ul>
-        <li>Hide helpful info in DMs</li>
-        <li>Leave messages unanswered</li>
-      </ul>
+    <!-- Guidelines Section -->
+    <section id="guidelines" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Guidelines & Best Practices</h2>
+        <p class="section-subtitle">Essential practices for effective QA work and team collaboration</p>
+      </div>
+      
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Tracking Validations</h3>
+          <ul>
+            <li>Confirm correct environment</li>
+            <li>Use private browser windows</li>
+            <li>Run sanity test cases first</li>
+            <li>Watch Slack for updates</li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <h3>JIRA Bug Ticketing</h3>
+          <ul>
+            <li><a href="https://paramount.atlassian.net/">Access JIRA</a></li>
+            <li>Use MOPS Bug Template</li>
+            <li>Comment "Ready to Ship" & tag dev</li>
+            <li>Move to "Ready to Ship" status</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-section">
+        <h3 style="text-align: center; margin-bottom: 2rem; color: var(--paramount-dark-blue);">Slack Best Practices</h3>
+        <div class="do-dont-grid">
+          <div class="do-section">
+            <h4 style="color: #22c55e; margin-bottom: 1rem;">✓ DO</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li>✓ Connect Google Drive & Jira</li>
+              <li>✓ Use AI Assistant & self-DMs for notes</li>
+              <li>✓ Engage with reaction emojis</li>
+              <li>✓ Respond in thread when appropriate</li>
+            </ul>
+          </div>
+          <div class="dont-section">
+            <h4 style="color: #ef4444; margin-bottom: 1rem;">✗ DON'T</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li>✗ Hide helpful info in DMs</li>
+              <li>✗ Leave messages unanswered</li>
+              <li>✗ Use Slack for ticket updates</li>
+              <li>✗ Ignore team notifications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Calendar & Meetings</h3>
+          <ul>
+            <li>Use "Meet with…" to view availability</li>
+            <li>Add Zoom link to invites</li>
+            <li>Check Notes in calendar events</li>
+            <li>Be punctual and prepared</li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <h3>Internship Success Tips</h3>
+          <ul>
+            <li>Document daily tasks & outcomes</li>
+            <li>Use a master Google Doc or Notes app</li>
+            <li>Explore office locations</li>
+            <li>Network with interns & cross-functional teams</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Good to Know</h2>
-      <ul>
-        <li><strong>SDLC:</strong> Stage → Preview → Prod</li>
-        <li>Stage supports dummy credit cards</li>
-        <li>Top INTL: UK, Canada, Australia</li>
-        <li>France: Orange STB only</li>
-      </ul>
+    <!-- Resources Section -->
+    <section id="resources" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Resources & Definitions</h2>
+        <p class="section-subtitle">Key terms and concepts you'll encounter in your QA journey</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Development Terminology</h3>
+          <ul>
+            <li><strong>AGILE:</strong> Sprint-based development methodology</li>
+            <li><strong>ARTs:</strong> Agile Release Trains</li>
+            <li><strong>Sprints:</strong> 2-week development cycles</li>
+            <li><strong>Stakeholders:</strong> Anyone invested in a feature</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Testing Concepts</h3>
+          <ul>
+            <li><strong>A/B Testing:</strong> Test version performance comparison</li>
+            <li><strong>Smoke Test:</strong> < 1hr, core functionality validation</li>
+            <li><strong>Regression Testing:</strong> Verify existing functionality</li>
+            <li><strong>Sanity Testing:</strong> Quick verification of key features</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Paramount Projects</h3>
+          <ul>
+            <li><strong>Terra Nova:</strong> Migration to modern tech stack</li>
+            <li><strong>Vodfather:</strong> Server-side playback project</li>
+            <li><strong>Media Edge API:</strong> Content delivery system</li>
+            <li><strong>AEP:</strong> Adobe Experience Platform integration</li>
+          </ul>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <section>
-      <h2>Tracking Validations Best Practices</h2>
-      <ul>
-        <li>Confirm correct environment</li>
-        <li>Use private browser windows</li>
-        <li>Run sanity test cases first</li>
-        <li>Watch Slack for updates</li>
-      </ul>
-    </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Paramount QA Team. Ready to make quality our priority.</p>
+  </footer>
 
-    <section>
-      <h2>DevTools Basics</h2>
-      <ul>
-        <li>Use <code>Inspect</code> > Network Tab</li>
-        <li>Filter for Media Edge API, /interact, /b/ss, AEP, etc.</li>
-      </ul>
-    </section>
+  <script>
+    // Navigation highlighting
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
 
-    <section>
-      <h2>Jira Bug Ticketing Guide</h2>
-      <p><a href="https://paramount.atlassian.net/">Jira Link</a></p>
-      <ul>
-        <li>Use MOPS Bug Template</li>
-        <li>Comment "Ready to Ship" & tag dev</li>
-        <li>Move to "Ready to Ship" status</li>
-        <li><strong>DO:</strong> clear, detailed tickets, frequent updates</li>
-        <li><strong>DON’T:</strong> use Slack for ticket updates</li>
-      </ul>
-    </section>
+    function highlightNavigation() {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
 
-    <section>
-      <h2>Internship Tips</h2>
-      <ul>
-        <li>Document daily tasks & outcomes</li>
-        <li>Use a master Google Doc or Notes app</li>
-        <li>Explore office locations</li>
-        <li>Network with interns & cross-functional teams</li>
-      </ul>
-    </section>
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
 
-    <section>
-      <h2>Appendix: Terms / Definitions</h2>
-      <ul>
-        <li><strong>AGILE:</strong> sprint-based development</li>
-        <li><strong>A/B Testing:</strong> test version performance</li>
-        <li><strong>ARTs:</strong> Agile Release Trains</li>
-        <li><strong>Smoke Test:</strong> < 1hr, core functionality</li>
-        <li><strong>Sprints:</strong> 2-week dev cycles</li>
-        <li><strong>Stakeholders:</strong> anyone invested in a feature</li>
-        <li><strong>Terra Nova:</strong> Migration to modern tech stack</li>
-        <li><strong>Vodfather:</strong> Server-side playback project</li>
-      </ul>
-    </section>
+    window.addEventListener('scroll', highlightNavigation);
+    window.addEventListener('load', highlightNavigation);
 
-  </div>
+    // Smooth scrolling for navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          const offsetTop = targetSection.offsetTop - 70;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
