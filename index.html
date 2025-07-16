@@ -4,165 +4,491 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QA Intern Onboarding - Summer 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pastel-pink': '#fce7f3',
+            'pastel-blue': '#dbeafe',
+            'pastel-green': '#d1fae5',
+            'pastel-purple': '#e9d5ff',
+            'pastel-yellow': '#fef3c7',
+            'pastel-orange': '#fed7aa',
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 2rem;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    h1, h2, h3 {
-      color: #333;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    code {
-      background-color: #eee;
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-    }
-    section {
-      margin-bottom: 2rem;
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>First Week QA Intern Onboarding and Tips</h1>
-    <p><strong>Summer 2025</strong></p>
+<body class="bg-gradient-to-br from-pastel-pink via-pastel-blue to-pastel-purple min-h-screen">
+  <!-- Sticky Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0">
+          <h1 class="text-xl font-bold text-gray-800">QA Onboarding</h1>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="#documentation" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Documentation</a>
+            <a href="#first-day" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">First Day</a>
+            <a href="#scheduling" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Scheduling</a>
+            <a href="#slack" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Slack</a>
+            <a href="#knowledge" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Knowledge</a>
+            <a href="#testing" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Testing</a>
+            <a href="#jira" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Jira</a>
+            <a href="#tips" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tips</a>
+            <a href="#glossary" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Glossary</a>
+          </div>
+        </div>
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white/90 backdrop-blur-md border-t border-gray-200">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#documentation" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Documentation</a>
+        <a href="#first-day" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">First Day</a>
+        <a href="#scheduling" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Scheduling</a>
+        <a href="#slack" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Slack</a>
+        <a href="#knowledge" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Knowledge</a>
+        <a href="#testing" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Testing</a>
+        <a href="#jira" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Jira</a>
+        <a href="#tips" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Tips</a>
+        <a href="#glossary" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Glossary</a>
+      </div>
+    </div>
+  </nav>
 
-    <section>
-      <h2>QA Documentation and Links</h2>
-      <ul>
-        <li>Acronyms</li>
-        <li>Communication Guideline</li>
-        <li>Data QA Guidelines</li>
-        <li>JIRA Best Practices</li>
-        <li><a href="#">JIRA Sprint Board</a></li>
-        <li><a href="#">MOPS QA Space</a> - QA principles and objectives</li>
-        <li>General QA Guidelines</li>
-        <li>TESTRAIL - regression test tracking</li>
-      </ul>
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
+        QA Intern Onboarding
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 mb-2">Summer 2025</p>
+      <div class="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Documentation Section -->
+    <section id="documentation" class="mb-16">
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+          <div class="w-3 h-8 bg-gradient-to-b from-pastel-purple to-purple-400 rounded-full mr-4"></div>
+          QA Documentation and Links
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-3">
+            <div class="bg-pastel-green/50 p-4 rounded-xl border border-green-200">
+              <span class="font-medium text-gray-700">📚 Acronyms</span>
+            </div>
+            <div class="bg-pastel-blue/50 p-4 rounded-xl border border-blue-200">
+              <span class="font-medium text-gray-700">💬 Communication Guideline</span>
+            </div>
+            <div class="bg-pastel-yellow/50 p-4 rounded-xl border border-yellow-200">
+              <span class="font-medium text-gray-700">📊 Data QA Guidelines</span>
+            </div>
+            <div class="bg-pastel-pink/50 p-4 rounded-xl border border-pink-200">
+              <span class="font-medium text-gray-700">🎯 JIRA Best Practices</span>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="bg-pastel-orange/50 p-4 rounded-xl border border-orange-200">
+              <a href="#" class="font-medium text-blue-600 hover:text-blue-800 transition-colors">🏃‍♂️ JIRA Sprint Board</a>
+            </div>
+            <div class="bg-pastel-purple/50 p-4 rounded-xl border border-purple-200">
+              <a href="#" class="font-medium text-blue-600 hover:text-blue-800 transition-colors">🚀 MOPS QA Space</a>
+              <p class="text-sm text-gray-600 mt-1">QA principles and objectives</p>
+            </div>
+            <div class="bg-pastel-green/50 p-4 rounded-xl border border-green-200">
+              <span class="font-medium text-gray-700">✅ General QA Guidelines</span>
+            </div>
+            <div class="bg-pastel-blue/50 p-4 rounded-xl border border-blue-200">
+              <span class="font-medium text-gray-700">🧪 TESTRAIL</span>
+              <p class="text-sm text-gray-600 mt-1">Regression test tracking</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Testing Logins + Links</h2>
-      <h3>First Day Tasks</h3>
-      <ul>
-        <li>View org chart via Slack profile</li>
-        <li>Reach out to manager for next steps</li>
-        <li>Set up direct deposit & time tracking (Workforce)</li>
-        <li>Submit hours weekly before Friday noon</li>
-        <li>Explore QA Onboarding doc & Confluence search</li>
-        <li>Set 3 personal & 3 professional goals</li>
-      </ul>
+    <!-- First Day Tasks Section -->
+    <section id="first-day" class="mb-16">
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+          <div class="w-3 h-8 bg-gradient-to-b from-pastel-green to-green-400 rounded-full mr-4"></div>
+          Testing Logins + Links
+        </h2>
+        <h3 class="text-2xl font-semibold text-gray-700 mb-6">🎯 First Day Tasks</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-gradient-to-br from-pastel-pink to-pink-100 p-6 rounded-xl border border-pink-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-2">👥 Get Connected</h4>
+            <p class="text-sm text-gray-600">View org chart via Slack profile</p>
+          </div>
+          <div class="bg-gradient-to-br from-pastel-blue to-blue-100 p-6 rounded-xl border border-blue-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-2">🤝 Manager Check-in</h4>
+            <p class="text-sm text-gray-600">Reach out to manager for next steps</p>
+          </div>
+          <div class="bg-gradient-to-br from-pastel-yellow to-yellow-100 p-6 rounded-xl border border-yellow-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-2">💰 Setup Finances</h4>
+            <p class="text-sm text-gray-600">Set up direct deposit & time tracking (Workforce)</p>
+          </div>
+          <div class="bg-gradient-to-br from-pastel-green to-green-100 p-6 rounded-xl border border-green-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-2">⏰ Time Management</h4>
+            <p class="text-sm text-gray-600">Submit hours weekly before Friday noon</p>
+          </div>
+          <div class="bg-gradient-to-br from-pastel-purple to-purple-100 p-6 rounded-xl border border-purple-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-2">📖 Explore Resources</h4>
+            <p class="text-sm text-gray-600">Explore QA Onboarding doc & Confluence search</p>
+          </div>
+          <div class="bg-gradient-to-br from-pastel-orange to-orange-100 p-6 rounded-xl border border-orange-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-2">🎯 Set Goals</h4>
+            <p class="text-sm text-gray-600">Set 3 personal & 3 professional goals</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Scheduling, Meetings, Google Calendar</h2>
-      <ul>
-        <li>Use “Meet with…” to view availability</li>
-        <li>Add Zoom link to invites</li>
-        <li>Check Notes in calendar events</li>
-      </ul>
+    <!-- Scheduling Section -->
+    <section id="scheduling" class="mb-16">
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+          <div class="w-3 h-8 bg-gradient-to-b from-pastel-blue to-blue-400 rounded-full mr-4"></div>
+          Scheduling, Meetings, Google Calendar
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4 bg-pastel-blue/30 p-4 rounded-xl">
+            <div class="bg-blue-400 p-2 rounded-full">
+              <span class="text-white text-sm">📅</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Use "Meet with…" to view availability</h4>
+              <p class="text-gray-600 text-sm">Check team member availability before scheduling</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 bg-pastel-green/30 p-4 rounded-xl">
+            <div class="bg-green-400 p-2 rounded-full">
+              <span class="text-white text-sm">🔗</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Add Zoom link to invites</h4>
+              <p class="text-gray-600 text-sm">Always include meeting links for remote participants</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 bg-pastel-yellow/30 p-4 rounded-xl">
+            <div class="bg-yellow-400 p-2 rounded-full">
+              <span class="text-white text-sm">📝</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Check Notes in calendar events</h4>
+              <p class="text-gray-600 text-sm">Review event descriptions and preparation notes</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Slack Tips</h2>
-      <p><strong>Do:</strong></p>
-      <ul>
-        <li>Connect Google Drive & Jira</li>
-        <li>Use AI Assistant & self-DMs for notes</li>
-        <li>Engage with reaction emojis & respond in thread</li>
-      </ul>
-      <p><strong>Don't:</strong></p>
-      <ul>
-        <li>Hide helpful info in DMs</li>
-        <li>Leave messages unanswered</li>
-      </ul>
+    <!-- Slack Tips Section -->
+    <section id="slack" class="mb-16">
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+          <div class="w-3 h-8 bg-gradient-to-b from-pastel-yellow to-yellow-400 rounded-full mr-4"></div>
+          Slack Tips
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold text-green-600 mb-4 flex items-center">
+              <span class="text-2xl mr-2">✅</span> Do
+            </h3>
+            <div class="space-y-3">
+              <div class="bg-green-50 border border-green-200 p-4 rounded-xl">
+                <span class="font-medium text-gray-700">🔗 Connect Google Drive & Jira</span>
+              </div>
+              <div class="bg-green-50 border border-green-200 p-4 rounded-xl">
+                <span class="font-medium text-gray-700">🤖 Use AI Assistant & self-DMs for notes</span>
+              </div>
+              <div class="bg-green-50 border border-green-200 p-4 rounded-xl">
+                <span class="font-medium text-gray-700">😊 Engage with reaction emojis & respond in thread</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-red-600 mb-4 flex items-center">
+              <span class="text-2xl mr-2">❌</span> Don't
+            </h3>
+            <div class="space-y-3">
+              <div class="bg-red-50 border border-red-200 p-4 rounded-xl">
+                <span class="font-medium text-gray-700">🔒 Hide helpful info in DMs</span>
+              </div>
+              <div class="bg-red-50 border border-red-200 p-4 rounded-xl">
+                <span class="font-medium text-gray-700">👻 Leave messages unanswered</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Good to Know</h2>
-      <ul>
-        <li><strong>SDLC:</strong> Stage → Preview → Prod</li>
-        <li>Stage supports dummy credit cards</li>
-        <li>Top INTL: UK, Canada, Australia</li>
-        <li>France: Orange STB only</li>
-      </ul>
+    <!-- Good to Know Section -->
+    <section id="knowledge" class="mb-16">
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+          <div class="w-3 h-8 bg-gradient-to-b from-pastel-orange to-orange-400 rounded-full mr-4"></div>
+          Good to Know
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gradient-to-r from-pastel-purple to-purple-100 p-6 rounded-xl border border-purple-200">
+            <h4 class="font-bold text-gray-800 mb-3">🔄 SDLC</h4>
+            <div class="flex items-center space-x-2">
+              <span class="bg-blue-400 text-white px-3 py-1 rounded-full text-sm">Stage</span>
+              <span class="text-gray-400">→</span>
+              <span class="bg-green-400 text-white px-3 py-1 rounded-full text-sm">Preview</span>
+              <span class="text-gray-400">→</span>
+              <span class="bg-purple-400 text-white px-3 py-1 rounded-full text-sm">Prod</span>
+            </div>
+          </div>
+          <div class="bg-gradient-to-r from-pastel-green to-green-100 p-6 rounded-xl border border-green-200">
+            <h4 class="font-bold text-gray-800 mb-3">💳 Testing</h4>
+            <p class="text-gray-600">Stage supports dummy credit cards</p>
+          </div>
+          <div class="bg-gradient-to-r from-pastel-blue to-blue-100 p-6 rounded-xl border border-blue-200">
+            <h4 class="font-bold text-gray-800 mb-3">🌍 Top INTL</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-400 text-white px-3 py-1 rounded-full text-sm">UK</span>
+              <span class="bg-blue-400 text-white px-3 py-1 rounded-full text-sm">Canada</span>
+              <span class="bg-blue-400 text-white px-3 py-1 rounded-full text-sm">Australia</span>
+            </div>
+          </div>
+          <div class="bg-gradient-to-r from-pastel-orange to-orange-100 p-6 rounded-xl border border-orange-200">
+            <h4 class="font-bold text-gray-800 mb-3">🇫🇷 France</h4>
+            <p class="text-gray-600">Orange STB only</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Tracking Validations Best Practices</h2>
-      <ul>
-        <li>Confirm correct environment</li>
-        <li>Use private browser windows</li>
-        <li>Run sanity test cases first</li>
-        <li>Watch Slack for updates</li>
-      </ul>
+    <!-- Testing Best Practices Section -->
+    <section id="testing" class="mb-16">
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+          <div class="w-3 h-8 bg-gradient-to-b from-pastel-pink to-pink-400 rounded-full mr-4"></div>
+          Tracking Validations Best Practices
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div class="bg-pastel-pink/40 p-5 rounded-xl border border-pink-200">
+              <h4 class="font-semibold text-gray-800 mb-2">🎯 Environment Check</h4>
+              <p class="text-gray-600 text-sm">Confirm correct environment</p>
+            </div>
+            <div class="bg-pastel-blue/40 p-5 rounded-xl border border-blue-200">
+              <h4 class="font-semibold text-gray-800 mb-2">🕵️ Private Browsing</h4>
+              <p class="text-gray-600 text-sm">Use private browser windows</p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-pastel-green/40 p-5 rounded-xl border border-green-200">
+              <h4 class="font-semibold text-gray-800 mb-2">✅ Sanity First</h4>
+              <p class="text-gray-600 text-sm">Run sanity test cases first</p>
+            </div>
+            <div class="bg-pastel-yellow/40 p-5 rounded-xl border border-yellow-200">
+              <h4 class="font-semibold text-gray-800 mb-2">👀 Stay Updated</h4>
+              <p class="text-gray-600 text-sm">Watch Slack for updates</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-8 bg-gradient-to-r from-pastel-purple to-purple-100 p-6 rounded-xl border border-purple-200">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">🛠️ DevTools Basics</h3>
+          <div class="space-y-2">
+            <p class="text-gray-700">Use <code class="bg-gray-200 px-2 py-1 rounded text-sm">Inspect</code> > Network Tab</p>
+            <p class="text-gray-600 text-sm">Filter for Media Edge API, /interact, /b/ss, AEP, etc.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>DevTools Basics</h2>
-      <ul>
-        <li>Use <code>Inspect</code> > Network Tab</li>
-        <li>Filter for Media Edge API, /interact, /b/ss, AEP, etc.</li>
-      </ul>
+    <!-- Jira Section -->
+    <section id="jira" class="mb-16">
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+          <div class="w-3 h-8 bg-gradient-to-b from-pastel-purple to-purple-400 rounded-full mr-4"></div>
+          Jira Bug Ticketing Guide
+        </h2>
+        <div class="mb-6">
+          <a href="https://paramount.atlassian.net/" class="inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-xl hover:bg-blue-600 transition-colors">
+            🔗 Jira Link
+          </a>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold text-green-600 mb-4 flex items-center">
+              <span class="text-2xl mr-2">✅</span> DO
+            </h3>
+            <div class="space-y-3">
+              <div class="bg-green-50 border border-green-200 p-4 rounded-xl">
+                <span class="font-medium text-gray-700">📝 Clear, detailed tickets</span>
+              </div>
+              <div class="bg-green-50 border border-green-200 p-4 rounded-xl">
+                <span class="font-medium text-gray-700">🔄 Frequent updates</span>
+              </div>
+              <div class="bg-green-50 border border-green-200 p-4 rounded-xl">
+                <span class="font-medium text-gray-700">📋 Use MOPS Bug Template</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-red-600 mb-4 flex items-center">
+              <span class="text-2xl mr-2">❌</span> DON'T
+            </h3>
+            <div class="space-y-3">
+              <div class="bg-red-50 border border-red-200 p-4 rounded-xl">
+                <span class="font-medium text-gray-700">💬 Use Slack for ticket updates</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6 bg-gradient-to-r from-pastel-blue to-blue-100 p-6 rounded-xl border border-blue-200">
+          <h4 class="font-semibold text-gray-800 mb-3">🚀 Workflow Steps</h4>
+          <div class="space-y-2 text-sm text-gray-600">
+            <p>1. Comment "Ready to Ship" & tag dev</p>
+            <p>2. Move to "Ready to Ship" status</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Jira Bug Ticketing Guide</h2>
-      <p><a href="https://paramount.atlassian.net/">Jira Link</a></p>
-      <ul>
-        <li>Use MOPS Bug Template</li>
-        <li>Comment "Ready to Ship" & tag dev</li>
-        <li>Move to "Ready to Ship" status</li>
-        <li><strong>DO:</strong> clear, detailed tickets, frequent updates</li>
-        <li><strong>DON’T:</strong> use Slack for ticket updates</li>
-      </ul>
+    <!-- Internship Tips Section -->
+    <section id="tips" class="mb-16">
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+          <div class="w-3 h-8 bg-gradient-to-b from-pastel-green to-green-400 rounded-full mr-4"></div>
+          Internship Tips
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gradient-to-br from-pastel-yellow to-yellow-100 p-6 rounded-xl border border-yellow-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+              <span class="text-xl mr-2">📝</span> Document Everything
+            </h4>
+            <p class="text-gray-600 text-sm">Document daily tasks & outcomes</p>
+          </div>
+          <div class="bg-gradient-to-br from-pastel-blue to-blue-100 p-6 rounded-xl border border-blue-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+              <span class="text-xl mr-2">📱</span> Use Digital Tools
+            </h4>
+            <p class="text-gray-600 text-sm">Use a master Google Doc or Notes app</p>
+          </div>
+          <div class="bg-gradient-to-br from-pastel-green to-green-100 p-6 rounded-xl border border-green-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+              <span class="text-xl mr-2">🏢</span> Explore Spaces
+            </h4>
+            <p class="text-gray-600 text-sm">Explore office locations</p>
+          </div>
+          <div class="bg-gradient-to-br from-pastel-purple to-purple-100 p-6 rounded-xl border border-purple-200 transform hover:scale-105 transition-transform">
+            <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+              <span class="text-xl mr-2">🤝</span> Network
+            </h4>
+            <p class="text-gray-600 text-sm">Network with interns & cross-functional teams</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Internship Tips</h2>
-      <ul>
-        <li>Document daily tasks & outcomes</li>
-        <li>Use a master Google Doc or Notes app</li>
-        <li>Explore office locations</li>
-        <li>Network with interns & cross-functional teams</li>
-      </ul>
+    <!-- Glossary Section -->
+    <section id="glossary" class="mb-16">
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+          <div class="w-3 h-8 bg-gradient-to-b from-pastel-orange to-orange-400 rounded-full mr-4"></div>
+          Appendix: Terms / Definitions
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <div class="bg-pastel-pink/40 p-5 rounded-xl border border-pink-200">
+              <h4 class="font-bold text-gray-800">AGILE</h4>
+              <p class="text-gray-600 text-sm">Sprint-based development</p>
+            </div>
+            <div class="bg-pastel-blue/40 p-5 rounded-xl border border-blue-200">
+              <h4 class="font-bold text-gray-800">A/B Testing</h4>
+              <p class="text-gray-600 text-sm">Test version performance</p>
+            </div>
+            <div class="bg-pastel-green/40 p-5 rounded-xl border border-green-200">
+              <h4 class="font-bold text-gray-800">ARTs</h4>
+              <p class="text-gray-600 text-sm">Agile Release Trains</p>
+            </div>
+            <div class="bg-pastel-yellow/40 p-5 rounded-xl border border-yellow-200">
+              <h4 class="font-bold text-gray-800">Smoke Test</h4>
+              <p class="text-gray-600 text-sm">< 1hr, core functionality</p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-pastel-purple/40 p-5 rounded-xl border border-purple-200">
+              <h4 class="font-bold text-gray-800">Sprints</h4>
+              <p class="text-gray-600 text-sm">2-week dev cycles</p>
+            </div>
+            <div class="bg-pastel-orange/40 p-5 rounded-xl border border-orange-200">
+              <h4 class="font-bold text-gray-800">Stakeholders</h4>
+              <p class="text-gray-600 text-sm">Anyone invested in a feature</p>
+            </div>
+            <div class="bg-pastel-pink/40 p-5 rounded-xl border border-pink-200">
+              <h4 class="font-bold text-gray-800">Terra Nova</h4>
+              <p class="text-gray-600 text-sm">Migration to modern tech stack</p>
+            </div>
+            <div class="bg-pastel-blue/40 p-5 rounded-xl border border-blue-200">
+              <h4 class="font-bold text-gray-800">Vodfather</h4>
+              <p class="text-gray-600 text-sm">Server-side playback project</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <section>
-      <h2>Appendix: Terms / Definitions</h2>
-      <ul>
-        <li><strong>AGILE:</strong> sprint-based development</li>
-        <li><strong>A/B Testing:</strong> test version performance</li>
-        <li><strong>ARTs:</strong> Agile Release Trains</li>
-        <li><strong>Smoke Test:</strong> < 1hr, core functionality</li>
-        <li><strong>Sprints:</strong> 2-week dev cycles</li>
-        <li><strong>Stakeholders:</strong> anyone invested in a feature</li>
-        <li><strong>Terra Nova:</strong> Migration to modern tech stack</li>
-        <li><strong>Vodfather:</strong> Server-side playback project</li>
-      </ul>
-    </section>
+  <!-- Footer -->
+  <footer class="bg-white/70 backdrop-blur-sm border-t border-gray-200 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-600">🎉 Welcome to your QA journey! You've got this! 🚀</p>
+    </div>
+  </footer>
 
-  </div>
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
